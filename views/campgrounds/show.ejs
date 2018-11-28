@@ -23,7 +23,12 @@
                         <% if (currentUser && campground.author.id.equals(currentUser._id)){ %>
                             <a class="btn btn-warning" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
                             <form id="delete-form" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
-                                <button class="btn btn-danger">Delete</button>
+                                <button id="showHidden" type="button" class="btn btn-danger">Delete</button>
+                                <div id="submitDiv" style="display:none">
+                                    <p>Do you really want to delete the campground?</p>
+                                    <button type="submit" class="btn btn-sm btn-danger">Yes</button>
+                                    <button id="hideAgain" type="button" class = "btn btn-sm btn-success">No</button>
+                                </div>
                             </form>
                         <% } %>
                     </div>
@@ -62,6 +67,6 @@
 </div>
 
 
-
+<script src="../../scripts/myScript.js"></script>
 
 <% include ../partials/footer %>
